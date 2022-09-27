@@ -1,0 +1,139 @@
+/* font */
+h1 {
+    font-family: Arvo;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+
+h3 {
+    font-family: Arvo;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}
+
+p {
+    font-family: Arvo;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+blockquote {
+    font-family: Arvo;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+pre {
+    font-family: Arvo;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+/* end of Arvo font */
+
+/* background style */
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+    background-image: linear-gradient(to right top, #136a8a, #267871);
+    /* background-image: linear-gradient(to right top, #667db6, #0082c8, #0082c8, #667db6); */
+    /* background-image: linear-gradient(to right top, #000428, #004e92); */
+    /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
+    color: rgb(225,225,255);
+  }
+/* end of background style */
+
+@media only screen 
+and (min-device-width : 320px) {
+.container {
+    background-color: rgb(255, 255, 255);
+    border-bottom-right-radius: 1.25em;
+    border-top-right-radius: 1.25em;
+    border-bottom-left-radius: 1.25em;
+    border-top-left-radius: 1.25em;
+    height: 100%;
+    width: 100%;
+    padding: inherit;
+    }
+}
+
+.container-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    justify-content:flex-end;
+    height: 250px;
+}
+
+img {
+    height:100%;
+    width:100%;
+  }
+ 
+/* get rid of img when screen resize */
+@media (max-width:640px){
+    img:first-child{
+        display:none;
+    }
+}
+
+input, text {
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+@media (max-width:640px){
+    input, text {
+        border-radius: 5px;
+        height: 40px;
+        width: 150px;
+        border: 1px solid;
+        margin-bottom: 10px;
+    }
+}
+
+.signin-button {
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid;
+    margin-left: auto;
+}
+
+label {
+    color: black;
+    font-size: medium;
+    top: -18px;
+    left: 10px;
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 19px
+}
+
+.align-center {
+    text-align: center;
+}
+@media (max-width:640px){
+    .align-center {
+        width: 150px;
+    }
+}
