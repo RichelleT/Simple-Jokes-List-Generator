@@ -5,7 +5,7 @@ function Navbar() {
 
   return (
     <div>
-      <p>Hello, {userName}</p>
+      Hello, {userName}
     </div>
   )
 }
