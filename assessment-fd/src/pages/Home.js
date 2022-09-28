@@ -14,13 +14,12 @@ const Home = () => {
         username: ""
       })
     
-    const [title, setTitle] = useState("")
-
-    /* const [username, setName] = useState(""); */
+    const [username, setUsername] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault();
          console.log(formData)
+         navigate('/jokes')
       } 
     
   return (

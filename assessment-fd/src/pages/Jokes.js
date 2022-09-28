@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from './Home'
 
-const Jokes = () => {
+function Jokes() {
   return (
     <div>Hello, </div>
   )
