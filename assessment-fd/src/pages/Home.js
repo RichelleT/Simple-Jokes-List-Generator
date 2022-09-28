@@ -21,10 +21,25 @@ const Home = () => {
     }   
 
     const [error, setError] = React.useState(false);
+    const [showErrorText, setShowErrorText] = React.useState(false);
+    const ref = React.useRef(); 
 
     const handleBlur = (event) => {
-      if (event.target.validity.patternMismatch) {
-        setError(true);  
+      if (!error) {
+        if (event.target.validity.patternMismatch) {
+          ref.current.focus();
+          setError(true);
+          setShowErrorText(true);  
+        }
+      }
+      if (error) {               
+        setShowErrorText(false); 
+      }                          
+    };
+
+    const handleFocus = () => {
+      if (error) {
+       setShowErrorText(true);
       }
     };
 
@@ -35,6 +50,17 @@ const Home = () => {
         };
       }
     }
+
+    const handleChange = (event) => {
+      const newValueIsValid = !event.target.validity.patternMismatch;
+      if (error) {
+        if (newValueIsValid) {
+          setError(false);
+          setShowErrorText(false);
+        }
+      }
+      setName(event.target.value);
+    };
 
   return (
     <div style={{ backgroundImage: `url(${BannerImage})`,backgroundRepeat:"no-repeat",height:"100%", width:"100%", position:"fixed"}}>
@@ -48,11 +74,12 @@ const Home = () => {
                     <div className='container-body'>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor='username'>Name</label>
-                            <input type="text" value={username} onBlur={handleBlur} style={style(error)}
-                            onChange={(e) => setName(e.target.value)} 
+                            <input type="text" value={username} onBlur={handleBlur} 
+                            style={style(error)} ref={ref} 
+                            onChange={handleChange} onFocus={handleFocus} 
                             name="username" id="username" placeholder="Enter Name" 
                             pattern=".{4,}" required/>
-                            {error && (
+                            {showErrorText && (
                               <p role="alert" style={{color: "rgb(255, 0, 0)" }}>
                                 Please make sure you enter more than 4 letters
                               </p>
