@@ -59,6 +59,7 @@ body {
   }
 /* end of background style */
 
+/* */
 @media only screen 
 and (min-device-width : 320px) {
 .container {
@@ -80,7 +81,9 @@ and (min-device-width : 320px) {
     justify-content:flex-end;
     height: 250px;
 }
+/* */
 
+/* */
 img {
     height:100%;
     width:100%;
@@ -92,7 +95,9 @@ img {
         display:none;
     }
 }
+/* */
 
+/* */
 input, text {
     border-radius: 5px;
     height: 40px;
@@ -110,6 +115,7 @@ input, text {
         margin-bottom: 10px;
     }
 }
+/* */
 
 .signin-button {
     width: 150px;
@@ -118,6 +124,8 @@ input, text {
     border: 1px solid;
     margin-left: auto;
 }
+
+/* TODO => add button style @ hover */
 
 label {
     color: black;
@@ -129,6 +137,7 @@ label {
     font-size: 19px
 }
 
+/* */
 .align-center {
     text-align: center;
 }
@@ -137,3 +146,4 @@ label {
         width: 150px;
     }
 }
+/* */

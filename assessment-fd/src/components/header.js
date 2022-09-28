@@ -19,8 +19,4 @@ Header.defaultProps = {
     title: 'Jokes List Generator',
 }
 
-/* Header.propTypes = {
-    title: PropTypes.string.isRequired,
-} */
-
 export default Header
