@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Jokes() {
+const Jokes = () => {
   return (
-    <div>Jokes</div>
+    <div>Hello, </div>
   )
 }
 

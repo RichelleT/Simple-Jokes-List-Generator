@@ -3,18 +3,22 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import '../styles/Home.css';
 import BannerImage from '../assets/MoonlitAsteroid.jpg'
+import Jokes from "./Jokes";
 
 const Home = () => {    
     var landingImage = require('../assets/signin.png');
+    
     let navigate = useNavigate();
+
     const [username, setName] = useState("");
+
     const handleSubmit = (event) => {
         event.preventDefault();
-         console.log(`The name you entered was: ${username}`)
+         console.log(`Hello, ${username}.`)
       }
     
   return (
-    <div style={{ backgroundImage: `url(${BannerImage})`,backgroundRepeat:"repeat-y",height:"100%", width:"100%", position:"fixed"}}>
+    <div style={{ backgroundImage: `url(${BannerImage})`,backgroundRepeat:"no-repeat",height:"100%", width:"100%", position:"fixed"}}>
         <div className='container mt-custom pt-auto'>
             <div className='row d-flex justify-content-center'>
                 <div className='col-6'>
@@ -25,7 +29,7 @@ const Home = () => {
                     <div className='container-body'>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor='username'>Name</label>
-                            <input type="text" value={username} onChange={(e) => setName(e.target.value)} name="username" id="username" placeholder="Username" /><br/><br/>
+                            <input type="text" value={username} onChange={(e) => setName(e.target.value)} name="username" id="username" placeholder="Enter Name" /><br/><br/>
                             <button className='signin-button' type='submit' onClick={()=>{navigate('/jokes')}}>Sign In</button> <br/> 
                         </form> 
                     </div>
