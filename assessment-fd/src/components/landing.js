@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../Assets/Styles/landing.css'
 import { useNavigate } from 'react-router-dom'
 //import Jokes from "./jokes";
+//import { Helmet } from "react-helmet";
 
 const Landing = () => {
     var landingImage = require('../Assets/Images/signin.png')
@@ -11,7 +12,9 @@ const Landing = () => {
         event.preventDefault();
          console.log(`The name you entered was: ${username}`)
       }
- 
+    
+      //const css = require('../Assets/Styles/landing.css').toString();
+
     return (
         <div>
             <div className='container mt-auto pt-auto'>
@@ -34,9 +37,6 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-{/*             <Routes>
-                <Route path="/jokes" element={<Jokes />} />
-            </Routes> */}
         </div>
   )
 }

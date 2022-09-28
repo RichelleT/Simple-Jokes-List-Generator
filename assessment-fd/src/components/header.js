@@ -1,5 +1,6 @@
 // import React from 'react'
 //import PropTypes from 'prop-types'
+import '../Assets/Styles/header.module.css'
 
 /* 
 TODO => create universal navbar/header w/ username 
@@ -10,7 +11,9 @@ TODO => joke list button on favourite list page
 const Header = ({title}) => {
   return (
     <header>
-        <h1> {title}</h1>
+        <nav class="navbar navbar-light bg-light">
+            Hello
+        </nav>
     </header>
   )
 }
