@@ -2,13 +2,33 @@ import * as React from 'react';
 import Navbar from '../components/Navbar'
 
 function Jokes() {
-
-    const allJ = fetch("https://v2.jokeapi.dev/joke/Any?amount=10")
-    const pun = fetch("https://v2.jokeapi.dev/joke/Pun?amount=10")
-    const dark = fetch("https://v2.jokeapi.dev/joke/Dark?amount=10")
-    const joke = fetch("https://v2.jokeapi.dev/joke/Programming?amount=10")
-
-    
+    const urls = [
+        "https://v2.jokeapi.dev/joke/Any?amount=10", 
+        "https://v2.jokeapi.dev/joke/Pun?amount=10",
+        "https://v2.jokeapi.dev/joke/Dark?amount=10",
+        "https://v2.jokeapi.dev/joke/Programming?amount=10",
+      ];
+      
+      async function fetchAll() {
+        const results = await Promise.all(urls.map((url) => fetch(url).then((r) => r.json())));
+        let data1 = results[0]?.jokes;
+        let data2 = results[1]?.jokes;
+        let data3 = results[2]?.jokes;
+        let data4 = results[3]?.jokes;
+        console.log(data1)
+        console.log(data2)
+        console.log(data3)
+        console.log(data4)
+        console.log(results)
+      }
+      
+      fetchAll();
+/*     const dataSources = {
+        group1: 'https://v2.jokeapi.dev/joke/Any?amount=10"',
+        group2: 'https://v2.jokeapi.dev/joke/Pun?amount=10',
+        group3: 'https://v2.jokeapi.dev/joke/Dark?amount=10',
+        group4: 'https://v2.jokeapi.dev/joke/Programming?amount=10',
+    }; */
 
 /*     const urls = [
         "https://v2.jokeapi.dev/joke/Any?amount=10", 
@@ -50,9 +70,8 @@ function Jokes() {
         
         <h1>
             Jokes List
-            <ul>
-                
-            </ul>
+        <p>
+        </p>
         </h1>
     </div>
   )
