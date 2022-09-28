@@ -1,8 +1,12 @@
 import React from 'react'
 
 function Navbar() {
+  let userName = localStorage.getItem('username');
+
   return (
-    <div>navbar</div>
+    <div>
+      <p>Hello, {userName}</p>
+    </div>
   )
 }
 

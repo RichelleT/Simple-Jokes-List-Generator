@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import * as React from 'react';
 //import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Home.css';
 import BannerImage from '../assets/MoonlitAsteroid.jpg'
 //import Jokes from "./Jokes";
 
-class Home extends React.Component {
+/* class Home extends React.Component {
     
     constructor(props) {
       super(props);
@@ -35,25 +35,25 @@ class Home extends React.Component {
         </form>
       );
     }
-  }
+  } */
 
-/* const Home = () => {    
+const Home = () => {    
     var landingImage = require('../assets/signin.png');
 
     let navigate = useNavigate();
 
-    const [formData, setFormData] = useState({
-        username: ""
-      })
+    const [username, setName] = React.useState(JSON.parse(localStorage.getItem('username')) || []);
     
-    //const [username, setUsername] = useState("")
+    React.useEffect(() => {
+        localStorage.setItem('username', username);
+      }, [username])
 
     const handleSubmit = (event) => {
         event.preventDefault();
-         console.log(formData)
+         console.log(`Hello, ${username}.`)
          navigate('/jokes')
-      } 
-    
+    }   
+
   return (
     <div style={{ backgroundImage: `url(${BannerImage})`,backgroundRepeat:"no-repeat",height:"100%", width:"100%", position:"fixed"}}>
         <div className='container mt-custom pt-auto'>
@@ -66,10 +66,10 @@ class Home extends React.Component {
                     <div className='container-body'>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor='username'>Name</label>
-                            <input type="text" onChange={(e) => setFormData({...formData, username: e.target.value})} name="username" id="username" placeholder="Enter Name" /><br/><br/>
-                            <button className='signin-button' onSubmit={handleSubmit} style={{marginLeft:"auto", position:"absolute"}} type='submit'>Sign In</button> <br/> 
+                            <input type="text" value={username} onChange={(e) => setName(e.target.value)} name="username" id="username" placeholder="Enter Name" /><br/><br/>
+                            {/* <input type="text" value={formData.username} onChange={handleInput} name="username" id="username" placeholder="Enter Name" /><br/><br/> */}
+                            <button className='signin-button' style={{marginLeft:"auto", position:"absolute"}} type='submit'>Sign In</button> <br/> 
                         </form> 
-                        <h1>{formData.username}</h1>
                     </div>
                 </div>
                 <div className='imgCol col-6'>
@@ -79,6 +79,6 @@ class Home extends React.Component {
         </div>
     </div>
   )
-}  */
+}  
 
 export default Home

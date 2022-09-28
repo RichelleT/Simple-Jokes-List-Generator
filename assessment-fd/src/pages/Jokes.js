@@ -1,21 +1,16 @@
 import React from 'react'
-import Home from './Home'
+import Navbar from '../components/Navbar'
 
-export class Jokes extends React.Component {
-    render () {
-    
-        return (
-            <div>
-                <h1>Hello, </h1>
-            </div>
-        );
-    }
-}
+function Jokes() {
 
-/* function Jokes() {
   return (
-    <div>Hello, </div>
+    <div>
+        <Navbar />
+        <h1>
+            Jokes List
+        </h1>
+    </div>
   )
-} */
+} 
 
 export default Jokes
