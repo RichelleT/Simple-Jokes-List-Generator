@@ -7,10 +7,10 @@ function Navbar() {
   return (
     <nav className="navbar-custom" style={{backgroundColor: "#e3f2fd"}}>
       <div className='span-right'>
-        <span>         Jokes</span>
+        <span>Jokes</span>
       </div>
       <div className='span-left'>
-        <span>Welcome, {userName}!           </span>
+        <span>Hello, {userName}!</span>
       </div>
     </nav>
   )

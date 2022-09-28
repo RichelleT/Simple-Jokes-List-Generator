@@ -22,9 +22,16 @@
 .span-left {
     margin-left: auto;
     white-space: pre-wrap;
+    margin-right: 60px;
+    font-size: x-large;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .span-right {
     margin-right: auto;
     white-space: pre-wrap;
+    margin-left: 60px;
+    font-size: x-large;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase
 }
