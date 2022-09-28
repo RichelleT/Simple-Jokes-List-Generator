@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Home.css';
@@ -7,15 +7,21 @@ import Jokes from "./Jokes";
 
 const Home = () => {    
     var landingImage = require('../assets/signin.png');
-    
+
     let navigate = useNavigate();
 
-    const [username, setName] = useState("");
+    const [formData, setFormData] = useState({
+        username: ""
+      })
+    
+    const [title, setTitle] = useState("")
+
+    /* const [username, setName] = useState(""); */
 
     const handleSubmit = (event) => {
         event.preventDefault();
-         console.log(`Hello, ${username}.`)
-      }
+         console.log(formData)
+      } 
     
   return (
     <div style={{ backgroundImage: `url(${BannerImage})`,backgroundRepeat:"no-repeat",height:"100%", width:"100%", position:"fixed"}}>
@@ -29,8 +35,8 @@ const Home = () => {
                     <div className='container-body'>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor='username'>Name</label>
-                            <input type="text" value={username} onChange={(e) => setName(e.target.value)} name="username" id="username" placeholder="Enter Name" /><br/><br/>
-                            <button className='signin-button' type='submit' onClick={()=>{navigate('/jokes')}}>Sign In</button> <br/> 
+                            <input type="text" onChange={(e) => setFormData({...formData, username: e.target.value})} name="username" id="username" placeholder="Enter Name" /><br/><br/>
+                            <button className='signin-button' style={{marginLeft:"auto", position:"absolute"}} type='submit'>Sign In</button> <br/> 
                         </form> 
                     </div>
                 </div>
