@@ -2,7 +2,8 @@ import * as React from 'react';
 import Navbar from '../components/Navbar'
 
 function Jokes() {
-    const urls = [
+    
+/*     const urls = [
         "https://v2.jokeapi.dev/joke/Any?amount=10", 
         "https://v2.jokeapi.dev/joke/Pun?amount=10",
         "https://v2.jokeapi.dev/joke/Dark?amount=10",
@@ -22,7 +23,7 @@ function Jokes() {
         console.log(results)
       }
       
-      fetchAll();
+      fetchAll(); */
 /*     const dataSources = {
         group1: 'https://v2.jokeapi.dev/joke/Any?amount=10"',
         group2: 'https://v2.jokeapi.dev/joke/Pun?amount=10',
