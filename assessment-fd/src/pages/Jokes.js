@@ -2,22 +2,6 @@ import * as React from 'react';
 import Navbar from '../components/Navbar'
 
 function Jokes() {
-/*     const [all, setAll] = React.useState("");
-
-    React.useEffect(() => {
-        const url = "https://v2.jokeapi.dev/joke/Any?amount=10";
-
-        const fetchData = () => {
-            return fetch(url)
-                  .then((response) => response.json())
-                  .then((data) => setAll(data));
-          }
-
-        fetchData();
-    }, []);
-
-    console.log(all) */
-
     React.useEffect(()=>{
         Promise.all([
             fetch('https://v2.jokeapi.dev/joke/Any?amount=10'),
@@ -39,13 +23,6 @@ function Jokes() {
             console.log(error);
         });
         },[]) 
-
- /*        const urls = [
-            "https://v2.jokeapi.dev/joke/Any?amount=10", 
-            "https://v2.jokeapi.dev/joke/Pun?amount=10",
-            "https://v2.jokeapi.dev/joke/Dark?amount=10",
-            "https://v2.jokeapi.dev/joke/Programming?amount=10",
-        ]; */
 
   return (
     <div>
