@@ -1,49 +1,50 @@
 import * as React from 'react';
 import Navbar from '../components/Navbar'
-//import axios from 'axios';
+import axios from 'axios';
 
 function Jokes() {
 
-    const [ anyJoke, setAnyJoke ] = React.useState([]);
-    const [ anyPunJoke, setPunJoke ] = React.useState([]);
-    const [ anyDarkJoke, setDarkJoke ] = React.useState([]);
-    const [ anyProgJoke, setProgJoke ] = React.useState([]);
+    const [anyJoke, setAnyJoke] = React.useState([])
+    const [puns, setPuns] = React.useState([])
+    const [darkJokes, setDarkJokes] = React.useState([])
+    const [programmingJokes, setProgrammingJokes] = React.useState([])
 
+    const fetchData = () =>{
+        const anyJokeURL ='https://v2.jokeapi.dev/joke/Any?amount=10"'
+        const punsURL ='https://v2.jokeapi.dev/joke/Pun?amount=10'
+        const darkJokesURL ='https://v2.jokeapi.dev/joke/Dark?amount=10'
+        const programmingJokesURL ='https://v2.jokeapi.dev/joke/Programming?amount=10'
+
+        const getAny = axios.get(anyJokeURL)
+        const getPuns = axios.get(punsURL)
+        const getDark = axios.get(darkJokesURL)
+        const getProg = axios.get(programmingJokesURL)
+
+        axios.all([getAny, getPuns, getDark, getProg]).then(
+            axios.spread((...allData) => {
+                const allAny = allData[0].data
+                const allPuns = allData[1].data
+                const allDark = allData[2].data
+                const allProg = allData[3].data
+
+                setAnyJoke(allAny)
+                setPuns(allPuns)
+                setDarkJokes(allDark)
+                setProgrammingJokes(allProg)
+
+                console.log(allAny.jokes)
+                console.log(allAny.jokes[2])
+                console.log(allAny.jokes[2].id)
+                console.log(allAny.jokes[2].category)
+                console.log(allAny.jokes[2].type)
+                console.log(allAny.jokes[2].joke || allAny.jokes[2].setup + allAny.jokes[2].delivery)      
+            })
+        )
+    }
 
     React.useEffect(()=>{
-        Promise.all([
-            fetch('https://v2.jokeapi.dev/joke/Any?amount=10'),
-            fetch('https://v2.jokeapi.dev/joke/Pun?amount=10'),
-            fetch("https://v2.jokeapi.dev/joke/Dark?amount=10"),
-            fetch("https://v2.jokeapi.dev/joke/Programming?amount=10"),
-        ]).then(function (responses) {
-            // get all array from api
-            return Promise.all(responses.map(function (response) {
-                return response.json();
-            }));
-        }).then(function (data) {
-            const allAny = data[0]
-            const allPuns = data[1]
-            const allDark = data[2]
-            const allProg = data[3]
-
-            setAnyJoke(allAny)
-            setPunJoke(allPuns)
-            setDarkJoke(allDark)
-            setProgJoke(allProg)
-
-            console.log(data)
-
-            console.log(allAny.jokes[2])
-            console.log(allAny.jokes[2].id)
-            console.log(allAny.jokes[2].category)
-            console.log(allAny.jokes[2].type)
-            console.log(allAny.jokes[2].joke || allAny.jokes[2].setup + allAny.jokes[2].delivery)
-
-        }).catch(function (error) {
-            console.log(error);
-        });
-    },[])
+        fetchData()
+    }, [])
 
   return (
     <div>
