@@ -24,7 +24,6 @@
     white-space: pre-wrap;
     margin-right: 60px;
     font-size: x-large;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .span-right {
@@ -32,6 +31,5 @@
     white-space: pre-wrap;
     margin-left: 60px;
     font-size: x-large;
-    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase
 }

@@ -45,6 +45,7 @@ export default function JokesList() {
                 <table>
                     <thead>
                         <tr>
+                            <th>Favourite</th>
                             <th>ID</th>
                             <th>Category</th>
                             <th>Joke</th>
@@ -53,6 +54,7 @@ export default function JokesList() {
                     <tbody>
                     {anyJoke.map(jokeAny => (
                         <tr key={jokeAny.id}>
+                            <td>&nbsp;</td>
                             <td>{jokeAny.id}</td>
                             <td>{jokeAny.category}</td>
                             <td>{jokeAny.joke || jokeAny.setup + jokeAny.delivery}</td>
@@ -60,6 +62,7 @@ export default function JokesList() {
                     ))}
                     {puns.map(punAny => (
                         <tr key={punAny.id}>
+                            <td>&nbsp;</td>
                             <td>{punAny.id}</td>
                             <td>{punAny.category}</td>
                             <td>{punAny.joke || punAny.setup + punAny.delivery}</td>
@@ -67,6 +70,7 @@ export default function JokesList() {
                     ))}
                     {darkJokes.map(darkAny => (
                         <tr key={darkAny.id}>
+                            <td>&nbsp;</td>
                             <td>{darkAny.id}</td>
                             <td>{darkAny.category}</td>
                             <td>{darkAny.joke || darkAny.setup + darkAny.delivery}</td>
@@ -74,6 +78,7 @@ export default function JokesList() {
                     ))}
                     {programmingJokes.map(progAny => (
                         <tr key={progAny.id}>
+                            <td>&nbsp;</td>
                             <td>{progAny.id}</td>
                             <td>{progAny.category}</td>
                             <td>{progAny.joke || progAny.setup + progAny.delivery}</td>
