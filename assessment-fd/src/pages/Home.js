@@ -85,7 +85,7 @@ const Home = () => {
                               </p>
                             )}
                             <br/><br/>
-                            <button className='signin-button' style={{marginLeft:"auto", position:"absolute"}} type='submit'>Sign In</button> <br/> 
+                            <button className='signin-button' style={{marginLeft:"auto"}} type='submit'>Sign In</button> <br/> 
                         </form> 
                     </div>
                 </div>

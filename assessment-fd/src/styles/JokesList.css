@@ -8,8 +8,20 @@
     justify-content: center;
 }
 
+button{
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  border: 1px solid;
+  margin-left: auto !important;
+  color: blue;
+  position: relative;
+  float: right;
+}
+
 table {
     width: 100%;
+    height: inherit;
     border-spacing: 0;
     border-radius: 1em;
     overflow: hidden;

@@ -76,7 +76,7 @@ input, text {
     border: 1px solid;
     margin-left: auto !important;
     color: blue;
-    position: absolute;
+    position: relative;
     float: right;
 }
 
