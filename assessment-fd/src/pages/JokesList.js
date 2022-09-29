@@ -41,67 +41,47 @@ export default function JokesList() {
         <div>
             <Navbar />
             <div className='container'>
-            <section>
-            <h2>Any Jokes</h2>
-            {anyJoke.length > 0 && (
-              <div>
-                {anyJoke.map((jokeAny) => (
-                  <div key={jokeAny.id}>
-                    <p>id: {jokeAny.id}, Category: {jokeAny.category}</p>
-                    <p>joke: {jokeAny.joke || jokeAny.setup + jokeAny.delivery}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-          <section>
-            <h2>Puns</h2>
-            {puns.length > 0 && (
-              <div>
-                {puns.map((punAny) => (
-                  <div key={punAny.id}>
-                    <p>id: {punAny.id}, Category: {punAny.category}</p>
-                    <p>joke: {punAny.joke || punAny.setup + punAny.delivery}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-          <section>
-            <h2>Dark Jokes</h2>
-            {darkJokes.length > 0 && (
-              <div>
-                {darkJokes.map((darkAny) => (
-                  <div key={darkAny.id}>
-                    <p>id: {darkAny.id}, Category: {darkAny.category}</p>
-                    <p>joke: {darkAny.joke || darkAny.setup + darkAny.delivery}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-          <section>
-            <h2>Programming Jokes</h2>
-            {programmingJokes.length > 0 && (
-              <div>
-                {programmingJokes.map((progAny) => (
-                  <div key={progAny.id}>
-                    <p>id: {progAny.id}, Category: {progAny.category}</p>
-                    <p>joke: {progAny.joke || progAny.setup + progAny.delivery}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
+                <h1>All Jokes</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Joke</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {anyJoke.map(jokeAny => (
+                        <tr key={jokeAny.id}>
+                            <td>{jokeAny.id}</td>
+                            <td>{jokeAny.category}</td>
+                            <td>{jokeAny.joke || jokeAny.setup + jokeAny.delivery}</td>
+                        </tr>
+                    ))}
+                    {puns.map(punAny => (
+                        <tr key={punAny.id}>
+                            <td>{punAny.id}</td>
+                            <td>{punAny.category}</td>
+                            <td>{punAny.joke || punAny.setup + punAny.delivery}</td>
+                        </tr>
+                    ))}
+                    {darkJokes.map(darkAny => (
+                        <tr key={darkAny.id}>
+                            <td>{darkAny.id}</td>
+                            <td>{darkAny.category}</td>
+                            <td>{darkAny.joke || darkAny.setup + darkAny.delivery}</td>
+                        </tr>
+                    ))}
+                    {programmingJokes.map(progAny => (
+                        <tr key={progAny.id}>
+                            <td>{progAny.id}</td>
+                            <td>{progAny.category}</td>
+                            <td>{progAny.joke || progAny.setup + progAny.delivery}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     ) 
 }
-  
-/* function JokesList() {
-  return (
-    <div>JokesList</div>
-  )
-}
-
-export default JokesList */
