@@ -5,14 +5,16 @@ import axios from 'axios';
 //import Jokes from './Jokes'
 
 export default function JokesList() {
+
     React.useEffect(() => {
         JokesListF();
       }, []);
 
-    const [anyJoke, setAnyJoke] = React.useState([])
+     const [anyJoke, setAnyJoke] = React.useState([])
     const [puns, setPuns] = React.useState([])
     const [darkJokes, setDarkJokes] = React.useState([])
-    const [programmingJokes, setProgrammingJokes] = React.useState([])
+    const [programmingJokes, setProgrammingJokes] = React.useState([]) 
+    const [fullList, setList] =  React.useState([])
 
     const JokesListF = () => {
         let endpoints = [
@@ -22,19 +24,24 @@ export default function JokesList() {
             'https://v2.jokeapi.dev/joke/Programming?amount=10'
         ];
           
-          // Return our response in the allData variable as an array
-          Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(([{data: anyJoke}, {data: puns}, {data: darkJokes}, {data: programmingJokes}] )=> {
-            
+        Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(([{data: anyJoke}, {data: puns}, {data: darkJokes}, {data: programmingJokes}] )=> {
             const aj = anyJoke.jokes
             const ap = puns.jokes
             const ad = darkJokes.jokes
             const app = programmingJokes.jokes
+
+            const joined = aj.concat(ap, ad, app);
+
+            console.log("Show joined array in console.")
+            console.log(joined)
+
             setAnyJoke(aj)
             setPuns(ap)
             setDarkJokes(ad)
             setProgrammingJokes(app)
+            setList(joined)
           }
-        );
+        ); 
     }
 
       return (
@@ -52,38 +59,16 @@ export default function JokesList() {
                         </tr>
                     </thead>
                     <tbody>
-                    {anyJoke.map(jokeAny => (
-                        <tr key={jokeAny.id}>
+                    {fullList.map(listItem => {
+                        return (
+                        <tr key={listItem.id}>
                             <td>&nbsp;</td>
-                            <td>{jokeAny.id}</td>
-                            <td>{jokeAny.category}</td>
-                            <td>{jokeAny.joke || jokeAny.setup + jokeAny.delivery}</td>
+                            <td>{ listItem.id }</td>
+                            <td>{ listItem.category }</td>
+                            <td>{ listItem.joke || listItem.setup + listItem.delivery }</td>
                         </tr>
-                    ))}
-                    {puns.map(punAny => (
-                        <tr key={punAny.id}>
-                            <td>&nbsp;</td>
-                            <td>{punAny.id}</td>
-                            <td>{punAny.category}</td>
-                            <td>{punAny.joke || punAny.setup + punAny.delivery}</td>
-                        </tr>
-                    ))}
-                    {darkJokes.map(darkAny => (
-                        <tr key={darkAny.id}>
-                            <td>&nbsp;</td>
-                            <td>{darkAny.id}</td>
-                            <td>{darkAny.category}</td>
-                            <td>{darkAny.joke || darkAny.setup + darkAny.delivery}</td>
-                        </tr>
-                    ))}
-                    {programmingJokes.map(progAny => (
-                        <tr key={progAny.id}>
-                            <td>&nbsp;</td>
-                            <td>{progAny.id}</td>
-                            <td>{progAny.category}</td>
-                            <td>{progAny.joke || progAny.setup + progAny.delivery}</td>
-                        </tr>
-                    ))}
+                    );
+                    })}
                     </tbody>
                 </table>
             </div>
