@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Modal() {
+function rnModal() {
   return (
     <div>renameModal</div>
   )
 }
 
-export default Modal
+export default rnModal

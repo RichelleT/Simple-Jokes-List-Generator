@@ -33,27 +33,3 @@
     font-size: x-large;
     text-transform: uppercase
 }
-
-.custCont{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: "Nunito", sans-serif;
-}
-
-.openModalBtn {
-    justify-items: center;
-    border: none;
-    border-radius: 6px;
-    background-color: cornflowerblue;
-    color: aliceblue;
-}
-
-.openModalBtn span.icon {
-    background: no-repeat;
-    float: left;
-    width: 10px;
-    height: 40px;
-}
