@@ -2,7 +2,7 @@ import * as React from 'react'
 import ReactDom from 'react-dom'
 import '../styles/renameModal.css'
 
-export default function Modal({ open, children, onClose }) {
+export default function Modal({ open, children }) {
     if (!open) return null
   
     return ReactDom.createPortal(

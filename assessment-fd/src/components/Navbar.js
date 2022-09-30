@@ -16,7 +16,6 @@ function Navbar() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsOpen(false)
-    //console.log(`Hello, ${username}.`)
   }
 
   //update name validation
@@ -61,7 +60,6 @@ function Navbar() {
     }
     if (event.target.value.length > 3 && event.target.value.length < 16) {
       setNewName(event.target.value);
-      console.log(`new username, ${username}.`)
     }
   };
 
@@ -77,14 +75,17 @@ React.useEffect(() => {
         </a>
       </div>
       <div className='span-left'>
-        <span>Hello, {userName}!&nbsp;</span>
-
+        { !isOpen &&
+          <span>Hello, {userName}!&nbsp;</span>
+          }
         <div className='btnWrap'>
-          <button className='iconBtn'
+          {!isOpen &&
+            <button className='iconBtn'
           onClick={() => setIsOpen(true)}
           >
             <i class="bi bi-pencil-square fs-5"></i>
           </button>
+          }
           <Modal open={isOpen} onClose={() => setIsOpen(false)}>
             <form onSubmit={handleSubmit}>
               <label>
