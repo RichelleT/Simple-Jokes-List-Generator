@@ -1,5 +1,5 @@
 .navbar-custom {
-    background-color: white;
+    background-color: #e3f2fd;
     position: relative;
     top: 0;
     left: 0;
@@ -7,6 +7,7 @@
     height: 50px;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .navbar-custom * {
@@ -31,5 +32,26 @@
     white-space: pre-wrap;
     margin-left: 60px;
     font-size: x-large;
-    text-transform: uppercase
+    text-transform: uppercase;
+}
+
+.btnWrap {
+    z-index: 1;
+}
+
+
+ .iconBtn {
+    background: none;
+    border: none;
+ }
+
+ .updBtn {
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid;
+    margin-left: auto !important;
+    color: blue;
+    position: relative;
+    float: right;
 }

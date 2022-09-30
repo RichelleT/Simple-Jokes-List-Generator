@@ -6,9 +6,10 @@
     margin-right: auto;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
-button{
+.button-cust{
   width: 150px;
   height: 35px;
   border-radius: 20px;

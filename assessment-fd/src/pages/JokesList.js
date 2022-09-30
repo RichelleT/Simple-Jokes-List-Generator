@@ -46,6 +46,7 @@ export default function JokesList() {
     return (
         <div>
             <Navbar />
+            
             <div className='container'>
                 <h1>All Jokes</h1>
                 <table>

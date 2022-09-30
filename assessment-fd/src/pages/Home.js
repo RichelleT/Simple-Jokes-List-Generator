@@ -74,18 +74,19 @@ const Home = () => {
                     <div className='container-body'>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor='username'>Name</label>
-                            <input type="text" value={username} onBlur={handleBlur} 
+                            <input type="text" 
+                            value={username} onBlur={handleBlur} 
                             style={style(error)} ref={ref} 
                             onChange={handleChange} onFocus={handleFocus} 
                             name="username" id="username" placeholder="Enter Name" 
-                            pattern=".{4,}" required/>
+                            pattern=".{4,15}" required/>
                             {showErrorText && (
                               <p role="alert" style={{color: "rgb(255, 0, 0)" }}>
-                                Please make sure you enter more than 4 letters
+                                Please make sure username is between 4 and 15 characters.                     
                               </p>
                             )}
                             <br/><br/>
-                            <button className='signin-button' style={{marginLeft:"auto"}} type='submit'>Sign In</button> <br/> 
+                            <button className='signin-button' type='submit'>Sign In</button> <br/> 
                         </form> 
                     </div>
                 </div>
