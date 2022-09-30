@@ -2,12 +2,17 @@ import * as React from 'react';
 import Navbar from '../components/Navbar'
 import '../styles/JokesList.css'
 import axios from 'axios';
+import "bootstrap-icons/font/bootstrap-icons.css";
+import FavouriteList from './FavouriteList';
+import ReactDom from 'react-dom'
 
 export default function JokesList() {
 
     React.useEffect(() => {
         JokesListF();
-      }, []);
+        setFavourite([addFavourite])
+        localStorage.setItem('addFavourite', addFavourite)
+    }, []);
 
     const [anyJoke, setAnyJoke] = React.useState([])
     const [puns, setPuns] = React.useState([])
@@ -47,6 +52,17 @@ export default function JokesList() {
         ); 
     } 
 
+    const [addFavourite, setFavourite] = React.useState([]);
+
+    const addFav = (event, listItem) => {
+        event.preventDefault()
+        setFavourite([listItem, ...addFavourite])
+
+        console.log('addFavourite')
+        console.log(addFavourite)
+        console.log('end addFavourite')
+      }
+
     return (
         <div>
             <Navbar />
@@ -74,32 +90,118 @@ export default function JokesList() {
                             <th>Favourite</th>
                             <th>ID</th>
                             <th>Category</th>
-                            <th>Joke</th>
+                            <th>Setup</th>
+                            <th>Delivery</th>
                         </tr>
                     </thead>
                     <tbody>
                     {filteredCategories.map(listItem => {
                         return (
-                        <tr key={listItem.id}>
-                            <td>&nbsp;</td>
+                        <tr key={listItem.id} id={listItem.id}>
+                            <td>
+                            {
+                                <button id={listItem.id} 
+                                onClick={(event) => addFav(event, listItem)}
+                                /* onClick={() => console.log('add - id:'+ listItem.id)} */>
+                                    <i class="bi bi-suit-heart"></i>
+                                </button>
+                                }
+                                {
+                                <button 
+                                onClick={() => console.log('remove')}>
+                                    <i class="bi bi-suit-heart-fill"></i>
+                                </button>
+                                }
+                            </td>
                             <td>{ listItem.id }</td>
                             <td>{ listItem.category }</td>
-                            <td>{ listItem.joke || listItem.setup + listItem.delivery }</td>
+                                <td>{listItem.setup || listItem.joke}</td>
+                            {listItem.type = 'twopart' && 
+                                <td>{listItem.delivery}</td>
+                            }
+{/*                             {listItem.type = 'single' && 
+                                <td>{listItem.joke}</td>
+                            }   */}                      
                         </tr>
                     );
                     })}
                     {(!selectedCategory || selectedCategory === 'all') && fullList.map(listItem => {
                         return (
-                        <tr key={listItem.id}>
-                            <td>&nbsp;</td>
+                        <tr key={listItem.id} id={listItem.id}>
+                            <td>
+                                {
+                                <button id={listItem.id}
+                                onClick={(event) => addFav(event, listItem)}
+                                /* onClick={() => console.log('add - id:' + listItem.id)} */>
+                                    <i class="bi bi-suit-heart"></i>
+                                </button>
+                                }
+                                {
+                                <button id={listItem.id} 
+                                onClick={() => console.log('remove')}>
+                                    <i class="bi bi-suit-heart-fill"></i>
+                                </button>
+                                }
+                            </td>
                             <td>{ listItem.id }</td>
                             <td>{ listItem.category }</td>
-                            <td>{ listItem.joke || listItem.setup + listItem.delivery }</td>
+                            <td>{listItem.setup || listItem.joke}</td>
+                            {listItem.type = 'twopart' && 
+                                <td>{listItem.delivery}</td>
+                            }
+{/*                             {listItem.type = 'single' && 
+                                <td>{listItem.joke}</td>
+                            } */}
                         </tr>
                     );
                     })}
                     </tbody>
                 </table>
+                <FavouriteList>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Favourite</th>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Setup</th>
+                            <th>Delivery</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {addFavourite.map(listItem => {
+                        return (
+                        <tr key={listItem.id} id={listItem.id}>
+                            <td>
+                            {
+                                <button id={listItem.id} 
+                                onClick={(event) => addFav(event, listItem)}
+                                /* onClick={() => console.log('add - id:'+ listItem.id)} */>
+                                    <i class="bi bi-suit-heart"></i>
+                                </button>
+                                }
+                                {
+                                <button 
+                                onClick={() => console.log('remove')}>
+                                    <i class="bi bi-suit-heart-fill"></i>
+                                </button>
+                                }
+                            </td>
+                            <td>{ listItem.id }</td>
+                            <td>{ listItem.category }</td>
+                                <td>{listItem.setup || listItem.joke}</td>
+                            {listItem.type = 'twopart' && 
+                                <td>{listItem.delivery}</td>
+                            }
+{/*                             {listItem.type = 'single' && 
+                                <td>{listItem.joke}</td>
+                            }   */}                      
+                        </tr>
+                    );
+                    })}
+                    </tbody>
+                </table>
+                </FavouriteList>
             </div>
         </div>
     ) 

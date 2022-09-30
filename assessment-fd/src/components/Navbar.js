@@ -75,6 +75,8 @@ React.useEffect(() => {
         </a>
       </div>
       <div className='span-left'>
+        <a href='/fav'style={{textDecoration:"none"}}>Favourite List</a>
+        <a href='/jokes'style={{textDecoration:"none"}}>Jokes List</a>
         { !isOpen &&
           <span>Hello, {userName}!&nbsp;</span>
           }
