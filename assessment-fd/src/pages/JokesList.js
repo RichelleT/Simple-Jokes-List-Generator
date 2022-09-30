@@ -2,6 +2,7 @@ import * as React from 'react';
 import Navbar from '../components/Navbar'
 import '../styles/JokesList.css'
 import axios from 'axios';
+import ReactTable from "react-table";
 
 export default function JokesList() {
 
@@ -15,6 +16,10 @@ export default function JokesList() {
     const [programmingJokes, setProgrammingJokes] = React.useState([]) 
     const [fullList, setList] =  React.useState([])
 
+    const [selectedCategory, setSelectedCategory] = React.useState('')
+
+    const filteredCategories = fullList.filter(list => list.category.toLowerCase() === selectedCategory.toLowerCase())
+       
     const JokesListF = () => {
         let endpoints = [
             'https://v2.jokeapi.dev/joke/Any?amount=10',
@@ -52,6 +57,17 @@ export default function JokesList() {
                 <h1>Jokes List</h1><br/>
                 <div>
                     <button onClick={() => JokesListF()}>Refresh List</button><br/><br/>
+                    <select
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                    >
+                        <option value='all' selected>All</option>
+                        <option value='misc'>Misc</option>
+                        <option value='pun'>Pun</option>
+                        <option value='programming'>Programming</option>
+                        <option value='dark'>Dark</option>
+                        <option value='spooky'>Spooky</option>
+                        <option value='christmas'>Christmas</option>
+                    </select>
                 </div>
                 <table>
                     <thead>
@@ -63,7 +79,17 @@ export default function JokesList() {
                         </tr>
                     </thead>
                     <tbody>
-                    {fullList.map(listItem => {
+                    {filteredCategories.map(listItem => {
+                        return (
+                        <tr key={listItem.id}>
+                            <td>&nbsp;</td>
+                            <td>{ listItem.id }</td>
+                            <td>{ listItem.category }</td>
+                            <td>{ listItem.joke || listItem.setup + listItem.delivery }</td>
+                        </tr>
+                    );
+                    })}
+                    {(!selectedCategory || selectedCategory === 'all') && fullList.map(listItem => {
                         return (
                         <tr key={listItem.id}>
                             <td>&nbsp;</td>
