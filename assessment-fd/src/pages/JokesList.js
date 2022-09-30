@@ -2,7 +2,6 @@ import * as React from 'react';
 import Navbar from '../components/Navbar'
 import '../styles/JokesList.css'
 import axios from 'axios';
-import ReactTable from "react-table";
 
 export default function JokesList() {
 
