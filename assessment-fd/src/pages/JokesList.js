@@ -48,8 +48,11 @@ export default function JokesList() {
             <Navbar />
             
             <div className='container'>
-                <h1>All Jokes</h1>
-                <button onClick={() => JokesListF()}>Refresh List</button>
+                <br/>
+                <h1>Jokes List</h1><br/>
+                <div>
+                    <button onClick={() => JokesListF()}>Refresh List</button><br/><br/>
+                </div>
                 <table>
                     <thead>
                         <tr>
