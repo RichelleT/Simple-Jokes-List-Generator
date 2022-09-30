@@ -41,7 +41,7 @@ export default function JokesList() {
             setList(joined)
           }
         ); 
-    }
+    } 
 
     return (
         <div>
@@ -49,6 +49,7 @@ export default function JokesList() {
             
             <div className='container'>
                 <h1>All Jokes</h1>
+                <button onClick={() => JokesListF()}>Refresh List</button>
                 <table>
                     <thead>
                         <tr>
