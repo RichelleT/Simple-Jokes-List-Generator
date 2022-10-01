@@ -19,6 +19,8 @@
     padding: 20px 20px;
     z-index: 9999;
     border: 1px solid black;
+    height: 900px;
+    overflow: auto;
 } 
 
 .closeBtn {

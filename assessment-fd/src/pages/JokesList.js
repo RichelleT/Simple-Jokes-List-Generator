@@ -100,13 +100,13 @@ export default function JokesList() {
                     </div>
                     <div className='btnWrap container-left'>
                         {!isOpen &&
-                            <button className='cont2button'
+                            <button className='cont2button button-cust'
                         onClick={() => setIsOpen(true)}
                         >
                             Favourite Jokes
                         </button>
                         }<br/><br/>
-                        <button className='cont2button' onClick={() => JokesListF()}>Refresh List</button><br/><br/>
+                        <button className='cont2button button-cust' onClick={() => JokesListF()}>Refresh List</button><br/><br/>
                     </div><br/><br/>
                 </div>
                 <table>
@@ -125,20 +125,11 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                            { 
                                 <button id={listItem.id} 
                                 onClick={(event) => addFav(event, listItem)}
                                 >
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
-                                }
-                            {
-                                <button id={listItem.id} 
-                                onClick={(e) => remFav(e, listItem)}
-                                >
-                                    <i class="bi bi-suit-heart-fill"></i>
-                                </button>
-                                }
                             </td>
                             <td>{ listItem.id }</td>
                             <td>{ listItem.category }</td>
@@ -151,20 +142,11 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                                {
                                 <button id={listItem.id}
                                 onClick={(event) => addFav(event, listItem)}
                                 >
                                     <i class="bi bi-suit-heart"></i>
-                                </button>
-                                }
-                                { 
-                                <button id={listItem.id} 
-                                onClick={(e) => remFav(e, listItem)}
-                                >
-                                    <i class="bi bi-suit-heart-fill"></i>
-                                </button>
-                                }
+                                </button> 
                             </td>
                             <td>{ listItem.id }</td>
                             <td>{ listItem.category }</td>                            
@@ -179,7 +161,7 @@ export default function JokesList() {
             <FavouriteList open={isOpen} onClose={() => setIsOpen(false)}>
                 <h1>Favourite Jokes List</h1><br/>
                 <div>
-                <table>
+                <table className='addFav'>
                     <thead>
                         <tr>
                             <th>Favourite</th>
