@@ -51,13 +51,27 @@ export default function JokesList() {
 
     const [addFavourite, setFavourite] = React.useState([]);
 
+    //add joke to fav list
     const addFav = (event, listItem) => {
         event.preventDefault()
         setFavourite([listItem, ...addFavourite])
       }
 
     console.log(addFavourite)
-    console.log('^ addFavourite ^')
+    console.log('^ add favourite ^')
+
+    //remove joke from fav list
+    const remFav = (e, listItem) => {
+        e.preventDefault()
+        console.log(listItem)
+        var tempArray = [...addFavourite];
+        if (listItem !== -1) {
+            tempArray.splice(listItem, 1);
+            setFavourite(tempArray);
+            console.log(addFavourite)
+            console.log('^ remove favourite ^')
+          }
+    }
 
     //try modal
     const [isOpen, setIsOpen] = React.useState(false)
@@ -116,7 +130,8 @@ export default function JokesList() {
                                 }
                             {!addFavourite &&
                                 <button id={listItem.id} 
-                                onClick={() => console.log('remove')}>
+                                onClick={(e) => remFav(e, listItem)}
+                                >
                                     <i class="bi bi-suit-heart-fill"></i>
                                 </button>
                                 }
@@ -143,7 +158,8 @@ export default function JokesList() {
                                 }
                                 {!addFavourite &&
                                 <button id={listItem.id} 
-                                onClick={() => console.log('remove')}>
+                                onClick={(e) => remFav(e, listItem)}
+                                >
                                     <i class="bi bi-suit-heart-fill"></i>
                                 </button>
                                 }
@@ -179,7 +195,8 @@ export default function JokesList() {
                     <tr key={listItem.id} id={listItem.id}>
                         <td>                                
                             <button id={listItem.id} 
-                            onClick={() => console.log('remove')}>
+                            onClick={(e) => remFav(e, listItem)}
+                            >
                                 <i class="bi bi-suit-heart-fill"></i>
                             </button>
                         </td>
