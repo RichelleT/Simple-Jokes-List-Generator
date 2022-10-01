@@ -57,6 +57,7 @@ export default function JokesList() {
       }
 
     console.log(addFavourite)
+    console.log('^ addFavourite ^')
 
     //try modal
     const [isOpen, setIsOpen] = React.useState(false)
@@ -106,14 +107,14 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                            {
+                            {addFavourite &&
                                 <button id={listItem.id} 
                                 onClick={(event) => addFav(event, listItem)}
                                 >
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
                                 }
-                                {
+                            {!addFavourite &&
                                 <button id={listItem.id} 
                                 onClick={() => console.log('remove')}>
                                     <i class="bi bi-suit-heart-fill"></i>
@@ -133,14 +134,14 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                                {
+                                {addFavourite &&
                                 <button id={listItem.id}
                                 onClick={(event) => addFav(event, listItem)}
                                 >
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
                                 }
-                                {
+                                {!addFavourite &&
                                 <button id={listItem.id} 
                                 onClick={() => console.log('remove')}>
                                     <i class="bi bi-suit-heart-fill"></i>
@@ -176,7 +177,12 @@ export default function JokesList() {
                     {addFavourite.map(listItem => {
                     return (
                     <tr key={listItem.id} id={listItem.id}>
-                        <td>&nbsp;</td>
+                        <td>                                
+                            <button id={listItem.id} 
+                            onClick={() => console.log('remove')}>
+                                <i class="bi bi-suit-heart-fill"></i>
+                            </button>
+                        </td>
                         <td>{ listItem.id }</td>
                         <td>{ listItem.category }</td>
                         <td>{listItem.setup || listItem.joke}</td>
