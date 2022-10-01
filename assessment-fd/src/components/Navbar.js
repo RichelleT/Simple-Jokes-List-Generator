@@ -75,7 +75,11 @@ React.useEffect(() => {
         </a>
       </div>
       <div className='span-left'>
-        <a href='/jokes'style={{textDecoration:"none"}}>Jokes List</a>
+        {!isOpen &&
+        <a href='/jokes'style={{textDecoration:"none"}}>
+          <span style={{marginRight:'2em', color:'blue', textTransform:'uppercase'}}>Jokes List</span>
+          </a>
+        }
         { !isOpen &&
           <span>Hello, {userName}!&nbsp;</span>
           }
@@ -84,7 +88,7 @@ React.useEffect(() => {
             <button className='iconBtn'
           onClick={() => setIsOpen(true)}
           >
-            <i class="bi bi-pencil-square fs-5"></i>
+            <i class="bi bi-pencil-square fs-5" style={{color:'#ff9999', fontSize:'xLarge'}}></i>
           </button>
           }
           <Modal open={isOpen} onClose={() => setIsOpen(false)}>

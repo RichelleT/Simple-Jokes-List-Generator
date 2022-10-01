@@ -177,7 +177,7 @@ export default function JokesList() {
                 </table>
             </div>
             <FavouriteList open={isOpen} onClose={() => setIsOpen(false)}>
-                <h1>Jokes List</h1><br/>
+                <h1>Favourite Jokes List</h1><br/>
                 <div>
                 <table>
                     <thead>
