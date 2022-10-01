@@ -9,7 +9,6 @@ export default function JokesList() {
 
     React.useEffect(() => {
         JokesListF();
-        localStorage.setItem('favArray', addFavourite)
     }, []);
 
     const [anyJoke, setAnyJoke] = React.useState([])
@@ -115,7 +114,7 @@ export default function JokesList() {
                                 </button>
                                 }
                                 {
-                                <button 
+                                <button id={listItem.id} 
                                 onClick={() => console.log('remove')}>
                                     <i class="bi bi-suit-heart-fill"></i>
                                 </button>
