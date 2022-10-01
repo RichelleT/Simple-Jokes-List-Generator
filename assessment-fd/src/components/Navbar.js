@@ -75,11 +75,11 @@ React.useEffect(() => {
         </a>
       </div>
       <div className='span-left'>
-        {!isOpen &&
+{/*         {!isOpen &&
         <a href='/jokes'style={{textDecoration:"none"}}>
           <span style={{marginRight:'2em', color:'blue', textTransform:'uppercase'}}>Jokes List</span>
           </a>
-        }
+        } */}
         { !isOpen &&
           <span>Hello, {userName}!&nbsp;</span>
           }

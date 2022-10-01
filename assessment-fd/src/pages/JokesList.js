@@ -83,27 +83,30 @@ export default function JokesList() {
             <div className='container'>
                 <br/>
                 <h1>Jokes List</h1><br/>
-                <div>
-                    <button onClick={() => JokesListF()}>Refresh List</button><br/><br/>
-                    <select
-                        onChange={(event) => setSelectedCategory(event.target.value)}
-                    >
-                        <option value='all' selected>All</option>
-                        <option value='misc'>Misc</option>
-                        <option value='pun'>Pun</option>
-                        <option value='programming'>Programming</option>
-                        <option value='dark'>Dark</option>
-                        <option value='spooky'>Spooky</option>
-                        <option value='christmas'>Christmas</option>
-                    </select><br/><br/>
-                    <div className='btnWrap'>
+                <div className='container2'>
+                    <div className='container-right'>
+                        <label className='cont2sel custLabel'>Select Joke Category</label><br/>
+                        <select className='cont2sel'
+                            onChange={(event) => setSelectedCategory(event.target.value)}
+                        >
+                            <option value='all' selected>All</option>
+                            <option value='misc'>Misc</option>
+                            <option value='pun'>Pun</option>
+                            <option value='programming'>Programming</option>
+                            <option value='dark'>Dark</option>
+                            <option value='spooky'>Spooky</option>
+                            <option value='christmas'>Christmas</option>
+                        </select><br/><br/>
+                    </div>
+                    <div className='btnWrap container-left'>
                         {!isOpen &&
-                            <button
+                            <button className='cont2button'
                         onClick={() => setIsOpen(true)}
                         >
-                            Favourite Jokes List
+                            Favourite Jokes
                         </button>
-                        }
+                        }<br/><br/>
+                        <button className='cont2button' onClick={() => JokesListF()}>Refresh List</button><br/><br/>
                     </div><br/><br/>
                 </div>
                 <table>
@@ -121,14 +124,14 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                            {addFavourite &&
+                            { 
                                 <button id={listItem.id} 
                                 onClick={(event) => addFav(event, listItem)}
                                 >
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
                                 }
-                            {!addFavourite &&
+                            {
                                 <button id={listItem.id} 
                                 onClick={(e) => remFav(e, listItem)}
                                 >
@@ -149,14 +152,14 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                                {addFavourite &&
+                                {
                                 <button id={listItem.id}
                                 onClick={(event) => addFav(event, listItem)}
                                 >
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
                                 }
-                                {!addFavourite &&
+                                { 
                                 <button id={listItem.id} 
                                 onClick={(e) => remFav(e, listItem)}
                                 >

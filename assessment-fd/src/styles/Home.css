@@ -82,14 +82,14 @@ input, text {
 
 /* TODO => add button style @ hover */
 
-label {
+.custLab {
     color: black;
-    font-size: medium;
+    font-size: x-large;
     top: -18px;
     left: 10px;
     background-color: #fff;
-    padding: 5px 10px;
-    font-size: 19px
+    /* padding: 5px 10px; */
+    /* font-size: 19px */
 }
 
 /* */

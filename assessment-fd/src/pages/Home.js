@@ -73,7 +73,7 @@ const Home = () => {
                     </div>
                     <div className='container-body'>
                         <form onSubmit={handleSubmit}>
-                            <label htmlFor='username'>Name</label>
+                            <label className='custLab' htmlFor='username'>Name</label>
                             <input type="text" 
                             value={username} onBlur={handleBlur} 
                             style={style(error)} ref={ref} 

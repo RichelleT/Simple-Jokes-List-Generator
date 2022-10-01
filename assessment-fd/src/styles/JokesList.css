@@ -9,6 +9,41 @@
     z-index: 2;
 }
 
+.mergeCol{
+  columns: 2 auto;
+}
+
+.container-left{
+  margin-left: auto;
+}
+
+.container-right{
+  margin-right: auto;
+}
+
+.container2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cont2button {
+  float: right;
+}
+
+.cont2sel {
+  float: left;
+}
+
+.custLabel {
+  color: rgb(116, 118, 122);
+  font-size: medium;
+  top: -18px;
+  left: 10px;
+  background-color: #fff;
+  /* font-size: 19px; */
+}
+
 .button-cust{
   width: 150px;
   height: 35px;
