@@ -1,39 +1,18 @@
 import React from 'react'
-import Navbar from '../components/Navbar';
+import ReactDom from 'react-dom'
+//import Navbar from '../components/Navbar';
 
-export default function FavouriteList() {
-  
-  return (
+export default function FavouriteList({ open, children, onClose }) {
+  if (!open) return null
+
+  return ReactDom.createPortal(
     <>
-    <Navbar/>
-    <div>
-      <table>
-        <thead>
-            <tr>
-                <th>Favourite</th>
-                <th>ID</th>
-                <th>Category</th>
-                <th>Setup</th>
-                <th>Delivery</th>
-            </tr>
-        </thead>
-        <tbody>
-    {/*                     {parsedFav.map(listItem => {
-            return (
-            <tr key={listItem.id} id={listItem.id}>
-                <td>&nbsp;</td>
-                <td>{ listItem.id }</td>
-                <td>{ listItem.category }</td>
-                    <td>{listItem.setup || listItem.joke}</td>
-                {listItem.type = 'twopart' && 
-                    <td>{listItem.delivery}</td>
-                }                    
-            </tr>
-        );
-        })} */}
-        </tbody>
-      </table>
-    </div>
-    </>
+      <div className='overlay'/>
+          <div className='modalStyle'>
+            <button className='closeBtn' onClick={onClose}>X</button>
+            {children} 
+          </div>
+    </>,
+    document.getElementById('portal')
   )
 }

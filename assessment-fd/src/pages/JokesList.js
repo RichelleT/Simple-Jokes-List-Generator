@@ -58,6 +58,9 @@ export default function JokesList() {
       }
 
     console.log(addFavourite)
+
+    //try modal
+    const [isOpen, setIsOpen] = React.useState(false)
       
     return (
         <div>
@@ -78,7 +81,16 @@ export default function JokesList() {
                         <option value='dark'>Dark</option>
                         <option value='spooky'>Spooky</option>
                         <option value='christmas'>Christmas</option>
-                    </select>
+                    </select><br/><br/>
+                    <div className='btnWrap'>
+                        {!isOpen &&
+                            <button
+                        onClick={() => setIsOpen(true)}
+                        >
+                            Favourite Jokes List
+                        </button>
+                        }
+                    </div><br/><br/>
                 </div>
                 <table>
                     <thead>
@@ -148,6 +160,37 @@ export default function JokesList() {
                     </tbody>
                 </table>
             </div>
+            <FavouriteList open={isOpen} onClose={() => setIsOpen(false)}>
+                <h1>Jokes List</h1><br/>
+                <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Favourite</th>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Setup</th>
+                            <th>Delivery</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {addFavourite.map(listItem => {
+                    return (
+                    <tr key={listItem.id} id={listItem.id}>
+                        <td>&nbsp;</td>
+                        <td>{ listItem.id }</td>
+                        <td>{ listItem.category }</td>
+                        <td>{listItem.setup || listItem.joke}</td>
+                        {listItem.type = 'twopart' && 
+                            <td>{listItem.delivery}</td>
+                        }                    
+                    </tr>
+                    );
+                    })} 
+                    </tbody>
+                </table>
+            </div>
+        </FavouriteList>
         </div>
     ) 
 }
