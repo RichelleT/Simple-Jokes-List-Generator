@@ -4,14 +4,12 @@ import '../styles/JokesList.css'
 import axios from 'axios';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import FavouriteList from './FavouriteList';
-import ReactDom from 'react-dom'
 
 export default function JokesList() {
 
     React.useEffect(() => {
         JokesListF();
-        setFavourite([addFavourite])
-        localStorage.setItem('addFavourite', addFavourite)
+        localStorage.setItem('favArray', addFavourite)
     }, []);
 
     const [anyJoke, setAnyJoke] = React.useState([])
@@ -57,12 +55,10 @@ export default function JokesList() {
     const addFav = (event, listItem) => {
         event.preventDefault()
         setFavourite([listItem, ...addFavourite])
-
-        console.log('addFavourite')
-        console.log(addFavourite)
-        console.log('end addFavourite')
       }
 
+    console.log(addFavourite)
+      
     return (
         <div>
             <Navbar />
@@ -73,7 +69,7 @@ export default function JokesList() {
                 <div>
                     <button onClick={() => JokesListF()}>Refresh List</button><br/><br/>
                     <select
-                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        onChange={(event) => setSelectedCategory(event.target.value)}
                     >
                         <option value='all' selected>All</option>
                         <option value='misc'>Misc</option>
@@ -102,7 +98,7 @@ export default function JokesList() {
                             {
                                 <button id={listItem.id} 
                                 onClick={(event) => addFav(event, listItem)}
-                                /* onClick={() => console.log('add - id:'+ listItem.id)} */>
+                                >
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
                                 }
@@ -118,10 +114,7 @@ export default function JokesList() {
                                 <td>{listItem.setup || listItem.joke}</td>
                             {listItem.type = 'twopart' && 
                                 <td>{listItem.delivery}</td>
-                            }
-{/*                             {listItem.type = 'single' && 
-                                <td>{listItem.joke}</td>
-                            }   */}                      
+                            }                    
                         </tr>
                     );
                     })}
@@ -132,7 +125,7 @@ export default function JokesList() {
                                 {
                                 <button id={listItem.id}
                                 onClick={(event) => addFav(event, listItem)}
-                                /* onClick={() => console.log('add - id:' + listItem.id)} */>
+                                >
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
                                 }
@@ -149,59 +142,11 @@ export default function JokesList() {
                             {listItem.type = 'twopart' && 
                                 <td>{listItem.delivery}</td>
                             }
-{/*                             {listItem.type = 'single' && 
-                                <td>{listItem.joke}</td>
-                            } */}
                         </tr>
                     );
                     })}
                     </tbody>
                 </table>
-                <FavouriteList>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Favourite</th>
-                            <th>ID</th>
-                            <th>Category</th>
-                            <th>Setup</th>
-                            <th>Delivery</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {addFavourite.map(listItem => {
-                        return (
-                        <tr key={listItem.id} id={listItem.id}>
-                            <td>
-                            {
-                                <button id={listItem.id} 
-                                onClick={(event) => addFav(event, listItem)}
-                                /* onClick={() => console.log('add - id:'+ listItem.id)} */>
-                                    <i class="bi bi-suit-heart"></i>
-                                </button>
-                                }
-                                {
-                                <button 
-                                onClick={() => console.log('remove')}>
-                                    <i class="bi bi-suit-heart-fill"></i>
-                                </button>
-                                }
-                            </td>
-                            <td>{ listItem.id }</td>
-                            <td>{ listItem.category }</td>
-                                <td>{listItem.setup || listItem.joke}</td>
-                            {listItem.type = 'twopart' && 
-                                <td>{listItem.delivery}</td>
-                            }
-{/*                             {listItem.type = 'single' && 
-                                <td>{listItem.joke}</td>
-                            }   */}                      
-                        </tr>
-                    );
-                    })}
-                    </tbody>
-                </table>
-                </FavouriteList>
             </div>
         </div>
     ) 
