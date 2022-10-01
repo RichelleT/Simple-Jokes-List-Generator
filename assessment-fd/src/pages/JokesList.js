@@ -117,6 +117,7 @@ export default function JokesList() {
                             <th>Category</th>
                             <th>Setup</th>
                             <th>Delivery</th>
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,10 +142,8 @@ export default function JokesList() {
                             </td>
                             <td>{ listItem.id }</td>
                             <td>{ listItem.category }</td>
-                                <td>{listItem.setup || listItem.joke}</td>
-                            {listItem.type = 'twopart' && 
-                                <td>{listItem.delivery}</td>
-                            }                    
+                            <td colSpan={listItem.joke && '2'}>{listItem.joke || listItem.setup}</td>
+                            <td colSpan={listItem.delivery && '2'}>{listItem.delivery}</td>
                         </tr>
                     );
                     })}
@@ -168,11 +167,9 @@ export default function JokesList() {
                                 }
                             </td>
                             <td>{ listItem.id }</td>
-                            <td>{ listItem.category }</td>
-                            <td>{listItem.setup || listItem.joke}</td>
-                            {listItem.type = 'twopart' && 
-                                <td>{listItem.delivery}</td>
-                            }
+                            <td>{ listItem.category }</td>                            
+                            <td colSpan={listItem.joke && '2'}>{listItem.joke || listItem.setup}</td>
+                            <td colSpan={listItem.delivery && '2'}>{listItem.delivery}</td>
                         </tr>
                     );
                     })}
@@ -190,6 +187,7 @@ export default function JokesList() {
                             <th>Category</th>
                             <th>Setup</th>
                             <th>Delivery</th>
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -205,10 +203,8 @@ export default function JokesList() {
                         </td>
                         <td>{ listItem.id }</td>
                         <td>{ listItem.category }</td>
-                        <td>{listItem.setup || listItem.joke}</td>
-                        {listItem.type = 'twopart' && 
-                            <td>{listItem.delivery}</td>
-                        }                    
+                        <td colSpan={listItem.joke && '2'}>{listItem.joke || listItem.setup}</td>
+                        <td colSpan={listItem.delivery && '2'}>{listItem.delivery}</td>
                     </tr>
                     );
                     })} 
