@@ -37,8 +37,8 @@ export default function JokesList() {
 
             const joined = aj.concat(ap, ad, app);
 
-            console.log("Show joined array in console.")
-            console.log(joined)
+            /* console.log("Show joined array in console.")
+            console.log(joined) */
 
             setAnyJoke(aj)
             setPuns(ap)
@@ -57,8 +57,8 @@ export default function JokesList() {
         setFavourite([listItem, ...addFavourite])
       }
 
-    console.log(addFavourite)
-    console.log('^ add favourite ^')
+    /* console.log(addFavourite)
+    console.log('^ add favourite ^') */
 
     //remove joke from fav list
     const remFav = (e, listItem) => {
