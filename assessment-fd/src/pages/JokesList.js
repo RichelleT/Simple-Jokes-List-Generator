@@ -79,7 +79,6 @@ export default function JokesList() {
     return (
         <div>
             <Navbar />
-            
             <div className='container'>
                 <br/>
                 <h1>Jokes List</h1><br/>
