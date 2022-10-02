@@ -9,8 +9,9 @@
     z-index: 2;
 }
 
-.mergeCol{
-  columns: 2 auto;
+.iconBtn {
+  background: none;
+  border: none;
 }
 
 .container-left{
@@ -33,6 +34,7 @@
 
 .cont2sel {
   float: left;
+  width: 200px;
 }
 
 .custLabel {

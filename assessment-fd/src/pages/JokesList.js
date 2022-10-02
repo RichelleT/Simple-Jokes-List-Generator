@@ -124,10 +124,10 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                                <button id={listItem.id} 
+                                <button id={listItem.id} className='iconBtn'
                                 onClick={(event) => addFav(event, listItem)}
                                 >
-                                    <i class="bi bi-suit-heart"></i>
+                                    <i class="bi bi-plus-circle fs-4"></i>
                                 </button>
                             </td>
                             <td>{ listItem.id }</td>
@@ -141,10 +141,10 @@ export default function JokesList() {
                         return (
                         <tr key={listItem.id} id={listItem.id}>
                             <td>
-                                <button id={listItem.id}
+                                <button id={listItem.id}  className='iconBtn'
                                 onClick={(event) => addFav(event, listItem)}
                                 >
-                                    <i class="bi bi-suit-heart"></i>
+                                    <i class="bi bi-plus-circle fs-4"></i>
                                 </button> 
                             </td>
                             <td>{ listItem.id }</td>
@@ -176,10 +176,10 @@ export default function JokesList() {
                     return (
                     <tr key={listItem.id} id={listItem.id}>
                         <td>                                
-                            <button id={listItem.id} 
+                            <button id={listItem.id} className='iconBtn'
                             onClick={(e) => remFav(e, listItem)}
                             >
-                                <i class="bi bi-suit-heart-fill"></i>
+                                <i class="bi bi-dash-circle fs-4"></i>
                             </button>
                         </td>
                         <td>{ listItem.id }</td>

@@ -83,7 +83,7 @@ React.useEffect(() => {
             <button className='iconBtn'
           onClick={() => setIsOpen(true)}
           >
-            <i class="bi bi-pencil-square fs-5" style={{color:'#ff9999', fontSize:'xLarge'}}></i>
+            <i class="bi bi-pencil-square fs-5" style={{color:'#ff9999'}}></i>
           </button>
           }
           <Modal open={isOpen} onClose={() => setIsOpen(false)}>
