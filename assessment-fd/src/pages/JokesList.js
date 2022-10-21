@@ -10,10 +10,13 @@ export default function JokesList() {
     React.useEffect(() => {
         JokesListF();
     }, []);
-
+    // eslint-disable-next-line no-unused-vars
     const [anyJoke, setAnyJoke] = React.useState([])
+    // eslint-disable-next-line no-unused-vars
     const [puns, setPuns] = React.useState([])
+    // eslint-disable-next-line no-unused-vars
     const [darkJokes, setDarkJokes] = React.useState([])
+    // eslint-disable-next-line no-unused-vars
     const [programmingJokes, setProgrammingJokes] = React.useState([]) 
     const [fullList, setList] =  React.useState([])
 
